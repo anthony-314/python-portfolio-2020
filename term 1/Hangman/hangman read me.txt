@@ -1,0 +1,2 @@
+Simple txt based hangman game 
+using tuples and text documents.
