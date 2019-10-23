@@ -1,0 +1,4 @@
+This was my first programming. I made this 
+at the university of Utah. It was pretty much
+a copy of space invaders. I used pygame for all of the game.
+I learned how to put in png files and a sorts of different things.
