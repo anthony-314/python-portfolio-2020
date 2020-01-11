@@ -1,7 +1,7 @@
-# Anthony Peraza
+#Anthony Peraza
 #Tic Tac Toe
 #11/19
-
+import sys
 #global constants
 X = "x"
 O ="o"
@@ -9,21 +9,29 @@ NUM_SQUARES = 9
 TIE = "TIE"
 EMPTY = " "
 
+
+print("Press one to start the game or press two to quit")
+choice =input('what is your choice')
+if choice  == 1:
+    instructions()
+if choice == 2:
+    sys.quit 
+    
+
+
 def instructions():
     """Display game instructions."""
     print(
     """
     Welcome to the greatest test of minds the world has ever seen.
-
     You will make your move know by entering a number, 1-9. The number
     will correspond to the board position as illustrated:
-
                 1 ! 2 ! 3
                 ---------
                 4 ! 5 ! 6
                 ---------
                 7 ! 8 ! 9
-    Ready begin""")
+    Ready start""")
 
 # tested
 def ask_yes_no(qustion):
@@ -43,12 +51,11 @@ def new_board():
 
 def display_board(board):
     print(str.format("""
-
-                {0} ! {1} ! {2}
-                ---------
-                {3} ! {4} ! {5}
-                ---------
-                {6} ! {7} ! {8}
+                {0} !  {1}  ! {2}
+             ---------
+                {3} !  {4}  ! {5}
+              ---------
+                {6} !  {7}  ! {8}
                 """,board[0],board[1],board[2],
                              board[3],board[4],
                              board[5],board[6],
