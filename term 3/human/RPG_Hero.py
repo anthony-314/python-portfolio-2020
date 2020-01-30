@@ -1,5 +1,4 @@
 import random
-from armor import *
 
 class Hero(object):
     raceList = ["Human","Elf","Dwarf", "K9"]
@@ -30,7 +29,7 @@ class Hero(object):
 
         self.inventory =[]
         self.inventoryMax = 10
-        self.head = []
+        self.head = ""
         self.head = []
         self.chest = []
         self.legs=[]
@@ -38,46 +37,6 @@ class Hero(object):
         self.gloves = []
         self.rightHand = []
         self.leftHand = []
-        self.popInv()
-
-    def popInv(self):
-        x = random.randint(0,3)
-        for i in range(x):
-            self.addToInv("Health Potion")
-        x = random.randint(0,3)
-        for i in range(x):
-            self.addToInv("Mana potions")
-
-        helm = Helm()
-        chest = Chest()
-        legs = Legs()
-        boots = Boots()
-        gloves = Gloves()
-
-
-        self.addToInv(helm)
-        self.addToInv(chest)
-        self.addToInv(legs)
-        self.addToInv(boots)
-        self.addToInv(gloves)
-        x = random.randint(0,2)
-
-        if x == 0:
-            weapon = Sword()
-        elif x == 1:
-            weapon = Axe()
-        else:
-            weapon = Spear()
-
-    def addToInv(self, item):
-        if len(self.inventory) < self.inventoryMax:
-            self.inventory.append(item)
-
-        else:
-            print("you have to many items in your inventory")
-            return
-
-
 
         self.maxHealth = self.level * self.healthMod
         self.currHealth = self.maxHealth
@@ -196,6 +155,14 @@ class Hero(object):
             self.levelUpfun()
 
 
+
+
+
+
+
+
+
+
     def __str__(self):
         return"""
         Name: {} \t Race:{} \t Class {} \t Level: {}
@@ -205,16 +172,6 @@ class Hero(object):
         Stamina: {}
         Iq: {}
         Agility:{}""" .format(self.name,self.race,self.playerClass,self.level,self.atk,self.deff,self.luck,self.stamina,self.iq,self.agi)
-
-    def equipGloves(self):
-        if len(self.gloves) < 1:
-            for i in self.inventory:
-                x = type(i)
-                if "Gloves" in str(x):
-                    print("you equiped a set of gloves")
-                    print(i)
-                    self.gloves.append(i)
-                    self.inventory.remove(i)
 
 
 
