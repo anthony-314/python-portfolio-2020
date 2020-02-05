@@ -1,7 +1,34 @@
 from RPG_Hero import *
 from armor import *
 
-player = Hero()
-print(player)
-player.equipAll()
-print(player)
+def switchTurn(turn):
+    if turn == 0:
+        turn = 1
+        notturn =0
+    else:
+        turn = 0
+        notturn = 1
+    return turn, notturn
+
+
+for i in range(2):
+    print("create Player", i)
+    player = Hero()
+    player.popInv()
+    player.append(player)
+
+
+turn = 0
+notturn = 1
+    while players[0].isAlive
+        x = players[turn].attack()
+        players[notturn].defend(x)
+        if players[1].isAlive:
+            xp, item = players[1.die()
+            player = Hero()
+            players[1] = player
+        player[turn].addXp(xp)
+        players[trun].addToInv(item)
+        turn, notturn= switchTurn()
+
+        #switch turns

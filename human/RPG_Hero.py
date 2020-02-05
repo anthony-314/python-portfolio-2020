@@ -119,16 +119,38 @@ class Hero(object):
             self.atk = random.randint(8, 12)
             self.luck = random.randint(4 , 6)
         if self.playerClass == "Mage":
+            self.atklist = ["normal", 'med', "strong"]
             self.stamina = random.randint(8, 12)
             self.agi = random.randint(3, 4)
-            self.iq = random.randint(15, 20)
+            self.iq = random.randint(25, 35)
             self.deff = random.randint(1 , 2)
             self.atk = random .randint(6, 12)
             self.luck = random.randint(10, 15)
-        #if self.playerClass == "Hunter":
+        if self.playerClass == "Hunter":
+            self.atklist = ["normal", 'med', "strong"]
+            self.stamina = random.randint(10, 12)
+            self.agi = random.randint(15, 20 )
+            self.iq = random.randint(20, 22)
+            self.deff = random.randint(10, 24)
+            self.atk = random.randint(8, 12)
+            self.luck = random.randint(5, 10)
+        if self.playerClass == "Dog":
+            self.atklist = ["normal", 'med', "strong"]
+            self.stamina = random.randint(20, 20)
+            self.agi = random.randint(20, 20)
+            self.iq = random.randint(20, 20)
+            self.deff = random.randint(20, 20)
+            self.atk = random.randint(20, 20)
+            self.luck = random.randint(20, 20)
+        if self.playerClass == "Karen":
+            self.stamina = random.randint(1, 2)
+            self.agi = random.randint(1, 2)
+            self.iq = random.randint(1, 2)
+            self.deff = random.randint(1, 2)
+            self.atk = random.randint(1, 2)
+            self.luck = random.randint(1,2)
 
     def die (self,champ):
-        self.alive = False
         dropxp = 10 * self.level
         champ.givexp(dropxp)
         item = random.choice(self.inventory)
@@ -416,6 +438,19 @@ class Hero(object):
                         self.inventory.remove(i)
                         break
 
+    def useMpPotion(self):
+        for i in self.inventory:
+            if i == " mana potion":
+                self.currMana = self.maxMana
+                self.inventory.remove(i)
+                return
+    def useHpPotion(self):
+        for i in self.inventory:
+            if i == "health potion":
+                self.currHealth = self.maxHealth
+                self.inventory.remove(i)
+                return
+
     def equipWeapon(self):
         for i in self.inventory:
             x = type(i)
@@ -502,6 +537,176 @@ class Hero(object):
 
                     else:
                         print("not an option")
+
+    def attack(self):
+        roll = random.randint(1,6)
+        if roll == 1:
+            print(self.name," Missed")
+            return 0
+        roll = random.randint(1, 12)
+        if self.playerClass == "Warrior":
+            for i in range(len(self.atklist))
+                print(i + 1, self.atk[i])
+                while True:
+                    x = input("what attack will you use 1, 2, 3, or 4 to use a health potion")
+                    if x == "1":
+                        attk = ((self.atk + self.stamina)*roll)*.1
+                        break
+                    elif x == "2":
+                        attk = ((self.atk + self.stamina) * roll) * .2
+                        self.stamina -= 10
+
+
+                        break
+                    elif x  == "3":
+                        attk = ((self.atk + self.stamina) * roll) * .3
+                        self.stamina -= 20
+                        break
+                    elif x == "4":
+                        self.useHpPotion()
+                        atkk = 0
+                        break
+                    else:
+                        print("not and option")
+        if self.playerClass == "Mage":
+            for i in range(len(self.atklist)):
+                print (i + 1, self.atklist[i])
+            while True:
+                x = input("what attack would you like to use 1, 2, 3, 4 for health potion and 5 for mana potion  ")
+                if x == "1":
+                    atkk = ((self.atk + self.iq)*roll)*.1
+                    self.iq -= 5
+                    break
+                elif x == "2":
+                    atkk = ((self.atk + self.iq) * roll) * .3
+                    self.iq -= 10
+                    break
+                elif x == "3":
+                    atkk = ((self.atk + self.iq) * roll) * .5
+                    self.iq -= 30
+                    break
+                elif x == "4":
+                    self.useHpPotion()
+                    atkk = 0
+                    break
+                elif x == "5":
+                    self.useMpPotion()
+                    atkk = 0
+                    break
+                else:
+                    print("sorry can't do that")
+        if self.playerClass == "Hunter":
+            for i in range(len(self.atklist)):
+                print (i + 1, self.atklist[i])
+            while True:
+                x = input("what attack would you like to use 1, 2, 3, 4 for health potion and 5 for mana potion  ")
+                if x == "1":
+                    atkk = ((self.atk + self.agi)*roll)*.1
+                    self.agi -= 5
+                    break
+                elif x == "2":
+                    atkk = ((self.atk + self.agi) * roll) * .3
+                    self.agi -= 10
+                    break
+                elif x == "3":
+                    atkk = ((self.atk + self.agi) * roll) * .5
+                    self.agi -= 30
+                    break
+                elif x == "4":
+                    self.useHpPotion()
+                    atkk = 0
+                    break
+                elif x == "5":
+                    self.useMpPotion()
+                    atkk = 0
+                    break
+                else:
+                    print("sorry can't do that")
+        if self.playerClass == "Dog":
+            x = input("what attack would you like to use 1, 2, 3, 4 for health potion and 5 for mana potion  ")
+            if x == "1":
+                atkk = ((self.atk + self.iq) * roll) * .1
+                self.luck += 5
+            elif x == "2":
+                atkk = ((self.atk + self.iq) * roll) * .3
+                self.agi += 10
+            elif x == "3":
+                atkk = ((self.atk + self.iq) * roll) * .5
+                self.atk += 30
+            elif x == "4":
+                self.useHpPotion()
+                atkk = 0
+                break
+            elif x == "5":
+                self.useMpPotion()
+                atkk = 0
+                break
+            else:
+                print("sorry can't do that")
+        if self.playerClass == "Karen":
+            x = input("what attack would you like to use 1, 2, 3, 4 for health potion and 5 for mana potion  ")
+            if x == "1":
+                atkk = ((self.atk + self.iq) * roll) * .1
+                self.iq -= 0
+                break
+            elif x == "2":
+                atkk = ((self.atk + self.iq) * roll) * .3
+                self.iq -= 1
+                break
+            elif x == "3":
+                atkk = ((self.atk + self.iq) * roll) * .5
+                self.iq -= 3
+                break
+            elif x == "4":
+                self.useHpPotion()
+                atkk = 0
+                break
+            elif x == "5":
+                self.useMpPotion()
+                atkk = 0
+                break
+            elif x =="oof":
+                atkk = ((self.atk +self.iq)*rol1)*1000000000000000000000000000000000000000*314
+                break
+            else:
+                print("sorry can't do that")
+
+
+
+
+        crit = 20
+        if self.luck > 150
+            crit = 15
+        roll = random.randint(1,20)
+        if roll == 14:
+            attk = attk*3
+        print(self.name, "did", attk, "damage")
+        return attk
+
+    def defend(self,damage):
+        roll = random.randint(1,20)
+        if roll == 20:
+            print("Blocked")
+            dmg = 0
+        roll = random.randint(1,6)
+        if self.playerClass == "Warrior":
+            block =(( self.deff +self.stamina) * roll)* .01
+        elif self.playerClass == "Mage":
+            block =(( self.deff +self.iq) * roll)* .01
+        elif self.playerClass == "Hunter":
+            block =(( self.deff +self.agi) * roll)* .01
+        elif self.playerClass == "Dog":
+            block =(( self.deff +self.stamina) * roll)* .01
+        elif self.playerClass == "Karen":
+            block =(( self.deff +self.stamina) * roll)* .01
+        else:
+            block = ((self.deff + self.iq)* roll)* .01
+        print(self.name, "blocked", block, "damage")
+        dmgdealt = dmg-block
+        if dmgdealt >= 0:
+            self.currHealth = self.currHealth-dmgdealt
+        if self.currHealth <= 0:
+            self.isAlive = False
 
 
 

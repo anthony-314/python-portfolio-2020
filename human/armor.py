@@ -130,6 +130,7 @@ class Axe(Weapon):
         self.luck = random.randint(0, 0) + self.rareMod
         self.iq = random.randint(0, 0) + self.rareMod
         self.agi = random.randint(0, 0) + self.rareMod
+
 class Spear(Weapon):
     def __init__(self):
         super(Spear, self).__init__(Weapon.WEAPONTYPE[0])
@@ -138,4 +139,6 @@ class Spear(Weapon):
         self.luck = random.randint(15, 30) + self.rareMod
         self.iq = random.randint(15, 20) + self.rareMod
         self.agi = random.randint(15, 20) + self.rareMod
+
+
 
