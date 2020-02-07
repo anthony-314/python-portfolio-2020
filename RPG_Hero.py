@@ -545,7 +545,7 @@ class Hero(object):
             return 0
         roll = random.randint(1, 12)
         if self.playerClass == "Warrior":
-            for i in range(len(self.atklist))
+            for i in range(len(self.atklist)):
                 print(i + 1, self.atk[i])
                 while True:
                     x = input("what attack will you use 1, 2, 3, or 4 to use a health potion")
@@ -623,59 +623,68 @@ class Hero(object):
                 else:
                     print("sorry can't do that")
         if self.playerClass == "Dog":
-            x = input("what attack would you like to use 1, 2, 3, 4 for health potion and 5 for mana potion  ")
-            if x == "1":
-                atkk = ((self.atk + self.iq) * roll) * .1
-                self.luck += 5
-            elif x == "2":
-                atkk = ((self.atk + self.iq) * roll) * .3
-                self.agi += 10
-            elif x == "3":
-                atkk = ((self.atk + self.iq) * roll) * .5
-                self.atk += 30
-            elif x == "4":
-                self.useHpPotion()
-                atkk = 0
-                break
-            elif x == "5":
-                self.useMpPotion()
-                atkk = 0
-                break
-            else:
-                print("sorry can't do that")
+            for i in range(len(self.atklist)):
+                print (i + 1, self.atklist[i])
+            while True:
+                x = input("what attack would you like to use 1, 2, 3, 4 for health potion and 5 for mana potion  ")
+                if x == "1":
+                    atkk = ((self.atk + self.iq) * roll) * .1
+                    self.luck += 5
+                    break
+                elif x == "2":
+                    atkk = ((self.atk + self.iq) * roll) * .3
+                    self.agi += 10
+                    break
+                elif x == "3":
+                    atkk = ((self.atk + self.iq) * roll) * .5
+                    self.atk += 30
+                    break
+                elif x == "4":
+                    self.useHpPotion()
+                    atkk = 0
+                    break
+                elif x == "5":
+                    self.useMpPotion()
+                    atkk = 0
+                    break
+                else:
+                    print("sorry can't do that")
         if self.playerClass == "Karen":
-            x = input("what attack would you like to use 1, 2, 3, 4 for health potion and 5 for mana potion  ")
-            if x == "1":
-                atkk = ((self.atk + self.iq) * roll) * .1
-                self.iq -= 0
-                break
-            elif x == "2":
-                atkk = ((self.atk + self.iq) * roll) * .3
-                self.iq -= 1
-                break
-            elif x == "3":
-                atkk = ((self.atk + self.iq) * roll) * .5
-                self.iq -= 3
-                break
-            elif x == "4":
-                self.useHpPotion()
-                atkk = 0
-                break
-            elif x == "5":
-                self.useMpPotion()
-                atkk = 0
-                break
-            elif x =="oof":
-                atkk = ((self.atk +self.iq)*rol1)*1000000000000000000000000000000000000000*314
-                break
-            else:
-                print("sorry can't do that")
+            for i in range(len(self.atklist)):
+                print (i + 1, self.atklist[i])
+            while True:
+                x = input("what attack would you like to use 1, 2, 3, 4 for health potion and 5 for mana potion  ")
+                if x == "1":
+                    atkk = ((self.atk + self.iq) * roll) * .1
+                    self.iq -= 0
+                    break
+                elif x == "2":
+                    atkk = ((self.atk + self.iq) * roll) * .3
+                    self.iq -= 1
+                    break
+                elif x == "3":
+                    atkk = ((self.atk + self.iq) * roll) * .5
+                    self.iq -= 3
+                    break
+                elif x == "4":
+                    self.useHpPotion()
+                    atkk = 0
+                    break
+                elif x == "5":
+                    self.useMpPotion()
+                    atkk = 0
+                    break
+                elif x =="oof":
+                    atkk = ((self.atk +self.iq)*rol1)*1000000000000000000000000000000000000000*314
+                    break
+                else:
+                    print("sorry can't do that")
 
 
 
 
         crit = 20
-        if self.luck > 150
+        if self.luck > 150:
             crit = 15
         roll = random.randint(1,20)
         if roll == 14:
