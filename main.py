@@ -17,7 +17,7 @@ for i in range(2):
     print("create Player", i)
     player = Hero()
     player.equipAll()
-    player.append(player)
+    players.append(player)
 
 
 turn = 0
@@ -36,6 +36,6 @@ while players[0].isAlive:
         player = Hero()
         players[1] = player
     turn, notturn = switchTurn(turn)
-print(players[0].name,"has died")
+print(players[0].name, "has died")
 
     #switch turns
