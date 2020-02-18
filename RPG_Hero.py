@@ -559,7 +559,7 @@ class Hero(object):
         roll = random.randint(1, 12)
         if self.playerClass == "Warrior":
             for i in range(len(self.atklist)):
-                print(i + 1, self.atk[i])
+                print(i + 1, self.atklist[i])
             while True:
                 x = input("what attack will you use 1, 2, 3, or 4 to use a health potion")
                 if x == "1":
@@ -692,10 +692,6 @@ class Hero(object):
                     break
                 else:
                     print("sorry can't do that")
-
-
-
-
         crit = 20
         if self.luck > 150:
             crit = 15
@@ -732,12 +728,12 @@ class Hero(object):
 
     def unequipall(self):
         try:
-            self.addToInv(self.Helm.pop(0))
-            self.addToInv(self.Chest.pop(0))
-            self.addToInv(self.Legs.pop(0))
-            self.addToInv(self.Boots.pop(0))
-            self.addToInv(self.Gloves.pop(0))
-            self.addToInv(self.righHand.pop(0))
+            self.addToInv(self.helm.pop(0))
+            self.addToInv(self.chest.pop(0))
+            self.addToInv(self.legs.pop(0))
+            self.addToInv(self.boots.pop(0))
+            self.addToInv(self.gloves.pop(0))
+            self.addToInv(self.rightHand.pop(0))
             self.addToInv(self.leftHand.pop(0))
         except:
             pass
