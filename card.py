@@ -29,7 +29,7 @@ class Card(object):
                 |    |   |
                 |________|
                 """
-            return rep
+        return rep
 
     def flip(self):
         self.is_face_up = not self.is_face_up
